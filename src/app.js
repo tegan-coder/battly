@@ -398,7 +398,14 @@ process.on("unhandledRejection", (error) => {
   console.log(error);
 });
 
-
+ipcMain.on("update-window-close", () => UpdateWindow.destroyWindow());
+ipcMain.on("update-window-dev-tools", () =>
+  UpdateWindow.getWindow().webContents.openDevTools()
+);
+ipcMain.on("main-window-open", () => MainWindow.createWindow());
+ipcMain.on("main-window-dev-tools", () =>
+  MainWindow.getWindow().webContents.openDevTools()
+);
 ipcMain.on("main-window-close", () => MainWindow.destroyWindow());
 ipcMain.on("main-window-progress_", (progress_actual, size_actual) => {
   MainWindow.getWindow().setProgressBar(
