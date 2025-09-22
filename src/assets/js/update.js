@@ -14,8 +14,8 @@ let lang;
 
 const pkgVersion = async () => {
     const pkg = {
-        version: "2.0.2",
-        buildVersion: 1004
+        version: "1.0.0",
+        buildVersion: 1001
     };
     return pkg;
 };
@@ -27,7 +27,7 @@ class Splash {
 
     async load() {
         try {
-            const res = await fetch("https://battly.site/launcher/config-launcher/config.json");
+            const res = await fetch("https://api.battlylauncher.com/launcher/config-launcher/config.json");
             const data = await res.json();
             const version = data.battly.release;
             document.getElementById("version_id").innerHTML = `v${version.latest_version} (build ${version.latest_build})`;

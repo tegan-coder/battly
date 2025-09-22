@@ -14,7 +14,7 @@ const {
 const { Microsoft } = require("./assets/js/libs/mc/Index");
 const { autoUpdater } = require("electron-updater");
 const { io } = require("socket.io-client");
-const socket = io("https://battly.site");
+const socket = io("https://api.battlylauncher.com");
 //process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
 const fs = require("fs");
 const path = require("path");
@@ -398,14 +398,7 @@ process.on("unhandledRejection", (error) => {
   console.log(error);
 });
 
-ipcMain.on("update-window-close", () => UpdateWindow.destroyWindow());
-ipcMain.on("update-window-dev-tools", () =>
-  UpdateWindow.getWindow().webContents.openDevTools()
-);
-ipcMain.on("main-window-open", () => MainWindow.createWindow());
-ipcMain.on("main-window-dev-tools", () =>
-  MainWindow.getWindow().webContents.openDevTools()
-);
+
 ipcMain.on("main-window-close", () => MainWindow.destroyWindow());
 ipcMain.on("main-window-progress_", (progress_actual, size_actual) => {
   MainWindow.getWindow().setProgressBar(
