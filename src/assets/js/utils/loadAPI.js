@@ -18,7 +18,7 @@ const path = require("path");
 const dataDirectory = process.env.APPDATA || (process.platform == "darwin" ? `${process.env.HOME}/Library/Application Support` : process.env.HOME);
 
 const configURL = "https://api.battlylauncher.com/battlylauncher/launcher/config-launcher/config.json";
-const versionsURL = "https://api.battlylauncher.com/battlylauncher/launcher/config-launcher/versions.json";
+const versionsURL = "https://battly.site/battlylauncher/launcher/config-launcher/versions.json";
 const versionsMojangURL = "https://launchermeta.mojang.com/mc/game/version_manifest_v2.json";
 
 const loadingText = document.getElementById("loading-text");
